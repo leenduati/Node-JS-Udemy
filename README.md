@@ -1,6 +1,6 @@
 # Node JS
 Main Uses
-1. Run Server - Create Server & Listen to Incm=oming Requests
+1. Run Server - Create Server & Listen to Incoming Requests
 2. Bunsiness Logice -  Handle Requests, Validate Input, Connect to Database
 3. Return Responses (Rendered HTML, JSON)
 
@@ -34,3 +34,8 @@ Alternatives to NODE JS, are Django, PHP Lavarel, Ruby etc.
 25. Deployment
 26. Beyond Web Servers
 27. Node + Typescript, Deno
+
+
+Read Eval Print Loop (REPL), this is the basic I/O in NOde terminal. YO can execute files directly by serving them.
+
+# JavaScript Refresher Course
