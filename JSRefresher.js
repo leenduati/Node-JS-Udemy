@@ -136,7 +136,20 @@ console.log(user.blogs[1].heading)
 let scoreOne = 50
 let scoreTwo = 60
 
-// use backticks `, and curly braces to crete string literals in JS
+// use backticks `, and curly braces to create string literals in JS
 console.log(`Score is ${scoreOne}`)
 
 //One object update updates the other in a direct copy
+
+//Arrays in JS
+let arr1 = [true, 222, 'jj', 29, null, 'haha']
+
+//go thru an array
+for (let index = 0; index < arr1.length; index++) {
+    const element = arr1[index];
+    console.log(`element is ${element}`)
+
+} //or use foreach
+arr1.forEach((x, index) => {
+    console.log(x, index)
+})
