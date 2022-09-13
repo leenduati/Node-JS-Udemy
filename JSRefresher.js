@@ -18,10 +18,10 @@ console.log(addNumbers(5, 89))
 
 //Unit 2
 // Will use let from now on
-//const uses a fixed var 
-// let is block scoped. does not allow to redeclare var, hosting does not occur in let 
+//const uses a fixed var
+// let is block scoped. does not allow to redeclare var, hosting does not occur in let
 // var attaches itself to Window Object
-//var is function scoped. allows to redeclare vards, and hoisiting occurs 
+//var is function scoped. allows to redeclare vards, and hoisiting occurs
 // avoid using the var keyword.
 
 //Arrow Functions
@@ -153,3 +153,41 @@ for (let index = 0; index < arr1.length; index++) {
 arr1.forEach((x, index) => {
     console.log(x, index)
 })
+
+let arr2 = [1, 2, 3, 5, 66, 98]
+
+console.log(arr2.filter((y) => {
+    if (y > 5)
+        return y
+}))
+
+
+//Spread and Rest OPerators
+//Spread is used to 'distribute'array members
+const hobbies = ['sPorts', 'cooking']
+console.log(hobbies.map(x => {
+        return x.toLowerCase()
+    }))
+    // spread and rest operators
+const newArr = ['riding', 'swimming', ...hobbies]
+console.log(newArr)
+
+const toArr = (...arr) => {
+        return arr;
+    }
+    //rest used to 'rejoin' araay items back into an array
+console.log(toArr(1, 3, true, false, 'haha'))
+
+//Destructuring
+// used to get part of an obj/arr
+//we can use console.log(Phone.type) to get the type, or use destructuring
+const PhoneType = ({ type, answer }) => {
+        console.log(type, answer)
+    }
+    // During destructuring, in the parameter section of the arrow function, add curly braces to signify
+    // the property of the object, the log/return it.
+PhoneType(Phone)
+
+//Destructuring arrays.
+let [hobby1, hobby2, hobby3] = newArr;
+console.log(`Hoby1 is ${hobby1}, and hobby2 is ${hobby2}`)
