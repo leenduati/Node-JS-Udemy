@@ -6,6 +6,8 @@ Main Uses
 
 Alternatives to NODE JS, are Django, PHP Lavarel, Ruby etc.
 
+**NB: Don't mind the spelling mistakes in comments on code itself :)**
+
 ## Course Outline
 1. Introduction
 2. JS Refreshers

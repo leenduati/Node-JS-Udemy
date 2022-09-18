@@ -191,3 +191,108 @@ PhoneType(Phone)
 //Destructuring arrays.
 let [hobby1, hobby2, hobby3] = newArr;
 console.log(`Hoby1 is ${hobby1}, and hobby2 is ${hobby2}`)
+    //if array is long, just picks the 1st two/specified vars of an array
+
+//
+
+//async // await in JS
+
+//asynchrous fns will not wait to finish first task/response
+// JUmps to another before first is finished
+// Synchronous fns will not run till first task is finished first.
+// 1. Callbacks
+
+
+const items = [
+    { living: 'cow', non: 'chair', num: 45 },
+    { living: 'goat', non: 'desk', num: 26 }
+]
+const id = document.getElementById('pid')
+
+function getItems() {
+    //setTimeout takes in a callbac function
+    setTimeout(() => {
+        let output = ''
+        items.forEach((item, index) => {
+            console.log(item.living)
+            output += `<li>${item.living} is at index ${index}</li>`
+        })
+        id.innerHTML = output
+    }, 1500)
+}
+
+
+function createItems(post, callback) {
+    setTimeout(() => {
+        items.push(post)
+            //we insert the callback fn here
+        callback()
+    }, 2500)
+}
+
+//when we are calling the createItems, we specify a callback fn as above
+// createItems({ living: 'hen', non: 'pen', num: 10 }, getItems)
+
+console.log(items)
+
+//as you can see, due tothe timeout, geItems iss posted to DOM first, before createItems runs.
+//to sort this out, in the functin we want to run first, we accept a callback fn as a parameter. this will be the fn we want to be second
+
+//Promises in JS
+//this is the same createposts used with a promise fn
+function createItemsPromise(post) {
+    //promise takes in two params, resolve and reject
+    //resolve is used to run promise suucessfully
+    //reject used when there is an error
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            items.push(post)
+                //create an error var
+            const error = true;
+
+            if (!error) {
+                reject('This an error yoo!')
+            } else {
+                resolve()
+            }
+        }, 2000)
+    })
+}
+
+/// since we have used a prmise, we will retun the .then keyword
+// we can also use .catch to catch errors
+// createItemsPromise({ living: 'hen', non: 'pen', num: 10 }).then(getItems).catch(err => {
+//     console.log(err)
+// })
+
+//Promise.all
+///promise.all takes in array of promises
+
+const r = 99
+try {
+    r = 100
+    throw new Error("can't do that")
+} catch (Error) {
+    console.log(Error)
+}
+
+console.log(r)
+
+//promises areused in fetch keywords
+
+const promise4 = fetch('https://jsonplaceholder.typicode.com/todos').then(
+    res => res.json()
+)
+
+console.log(promise4)
+
+//async await in JS
+//fn starts with async keyword
+async function init() {
+    //put the wawit keyword in the function going first
+    await createItemsPromise({ living: 'hen', non: 'pen', num: 10 })
+        // then call the function that you want to run
+    getItems()
+}
+
+init()
